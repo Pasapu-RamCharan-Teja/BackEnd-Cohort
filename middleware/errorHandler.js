@@ -1,15 +1,15 @@
-module.exports=(err,req,res,next) => {
+module.exports = (err, req, res, next) => {
     if(err.name === "ValidationError"){
         return res.status(400).json({
-            Message : err.message
+            message: err.message
         });
     }
     if(err.name === "CastError"){
         return res.status(400).json({
-            Message : err.message
+            message: "Invalid id"
         });
     }
     return res.status(500).json({
-        Message : err.message
+        message: err.message
     });
 }
